@@ -1,6 +1,6 @@
 import asyncio
 
-from .utils import ainput, trace, log, name_task
+from .utils import trace, log, name_task
 
 
 @name_task
