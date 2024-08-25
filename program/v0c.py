@@ -17,7 +17,7 @@ async def task_2_ERROR():
     try:
         trace("Wait 3s for Exception...\n")
         await asyncio.sleep(3)
-        raise Exception("task_ERROR: error!")
+        raise Exception("ERROR!")
     finally:
         log("cleanup! 😃")
 
@@ -39,6 +39,6 @@ async def main():
 
 asyncio.run(main())
 
-# Exception:         ✅
-# KeyboardInterrupt: ✅
-# SIGTERM:           Total failure.
+# Exception:         ✅ ?
+# KeyboardInterrupt: ✅ ?
+# SIGTERM:           ✅ ?

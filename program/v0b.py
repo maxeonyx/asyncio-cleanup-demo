@@ -1,30 +1,26 @@
 import asyncio
 
-from .utils import name_task, log, trace
+from .utils import log
 
 
-@name_task
-async def task_1_SIMPLE():
+async def connect():
     try:
-        await asyncio.sleep(99)
+        reader, writer = await asyncio.open_connection("host", "port")
     finally:
+        await writer.write_eof()
         log("cleanup! 😃")
 
 
-@name_task
-async def task_2_ERROR():
-    try:
-        trace("Wait 3s for Exception...\n")
-        await asyncio.sleep(3)
-        raise Exception("task_ERROR: error!")
-    finally:
-        log("cleanup! 😃")
+async def fail_after_3s():
+    print("Wait 3s for Exception...\n")
+    await asyncio.sleep(3)
+    raise Exception("ERROR!")
 
 
 async def main():
     await asyncio.gather(
-        task_1_SIMPLE(),
-        task_2_ERROR(),
+        connect(),
+        fail_after_3s(),
     )
 
 

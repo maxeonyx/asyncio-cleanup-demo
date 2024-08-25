@@ -4,8 +4,12 @@
 
 **2. Prefer `TaskGroup` to `gather` for bg tasks.**
 
-**3. Write your own `asyncio.run` with timeout.**
+**3. Respond to `SIGTERM`**
 
----
+**4. Write an `asyncio.run` with timeout.**
+
+<br/>
+<br/>
+<br/>
 
 ![image](./ZZ_qrcode.png)

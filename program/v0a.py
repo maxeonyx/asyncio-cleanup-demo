@@ -1,20 +1,20 @@
 import asyncio
 
 
-async def task_1_SIMPLE():
-    await asyncio.sleep(99)
+async def connect():
+    await asyncio.open_connection("host", "port")
 
 
-async def task_2_ERROR():
+async def fail_after_3s():
     print("Wait 3s for Exception...\n")
     await asyncio.sleep(3)
-    raise Exception("task_ERROR: error!")
+    raise Exception("ERROR!")
 
 
 async def main():
     await asyncio.gather(
-        task_1_SIMPLE(),
-        task_2_ERROR(),
+        connect(),
+        fail_after_3s(),
     )
 
 
